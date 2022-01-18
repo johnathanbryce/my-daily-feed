@@ -1,0 +1,22 @@
+.content_header {
+  display: flex;
+  justify-content: center;
+  font-size: 2.5rem;
+  box-shadow: 0 1px 1px -0.75px gray;
+  margin: 2.5rem 0 2rem 0;
+}
+
+.container {
+  display: flex;
+  overflow-x: scroll;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+.body_container {
+  min-height: 50%;
+  max-width: 90%;
+  margin: 0 auto;
+}

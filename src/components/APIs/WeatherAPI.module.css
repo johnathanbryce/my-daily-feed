@@ -1,0 +1,10 @@
+.weather_display_container {
+  padding: 3rem;
+  text-justify: auto;
+}
+
+.icon_container {
+  display: flex;
+
+  align-items: center;
+}
