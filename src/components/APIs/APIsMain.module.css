@@ -1,3 +1,7 @@
+.flex_container {
+  display: flex;
+}
+
 .content_header {
   display: flex;
   justify-content: center;
@@ -19,4 +23,14 @@
   min-height: 50%;
   max-width: 90%;
   margin: 0 auto;
+}
+
+.container h4 {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  text-align: center;
+
+  color: rgb(244, 150, 150);
 }
