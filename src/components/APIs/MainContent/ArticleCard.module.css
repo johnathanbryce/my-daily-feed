@@ -6,7 +6,7 @@
   justify-content: space-between;
   position: relative;
   margin: 2rem;
-  background-color: #e5eded;
+  background-color: #fafafa;
   line-height: 1.55;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   transition: transform 450ms;
@@ -20,7 +20,7 @@
 .articles_card p,
 h2,
 img {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   padding: 1rem;
   text-align: left;
 }
@@ -38,7 +38,7 @@ img {
 }
 
 button {
-  padding: 0.5rem;
+  padding: 0.6rem;
 
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   border-radius: 1rem;
@@ -53,8 +53,8 @@ button {
 
 button:hover,
 button:active {
-  background-color: lightpink;
-  color: white;
+  background-color: #db5461;
+  color: #fafafa;
   -webkit-transition: all 0.4s;
   -moz-transition: all 0.4s;
   transition: all 0.4s;
