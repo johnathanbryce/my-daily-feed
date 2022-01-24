@@ -4,6 +4,12 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 1rem 0 1rem;
+  /* TODO -- change background color theme 
+  background-color: rgb(43, 41, 41);
+  color: white;
+  */
+  background-color: #db5461;
+  color: #fafafa;
 }
 
 .header_content {

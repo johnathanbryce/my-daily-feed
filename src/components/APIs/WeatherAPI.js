@@ -24,16 +24,27 @@ function WeatherAPI() {
     <div className={classes.weather_display_container}>
       {fetchedData.data ? (
         <div>
-          <p>
-            Location: <strong>{fetchedData.data.location.name}, BC</strong>
-          </p>
-          <p>
-            Temperature:
-            <strong> {fetchedData.data.current.temp_c} degrees </strong>
-          </p>
-          <small>
-            Feels like: {fetchedData.data.current.feelslike_c} degrees
-          </small>
+          <div>
+            <div className={classes.text_container}>
+              <p>Location:</p>
+              <p>
+                <strong>{fetchedData.data.location.name}, BC</strong>
+              </p>
+            </div>
+            <div className={classes.text_container}>
+              <p>Temperature:</p>
+              <p>
+                <strong> {fetchedData.data.current.temp_c} ℃ </strong>
+              </p>
+            </div>
+            <div className={classes.text_container}>
+              <p>Wind speed:</p>
+              <p>
+                <strong> {fetchedData.data.current.wind_kph} km/h</strong>
+              </p>
+            </div>
+          </div>
+
           <div className={classes.icon_container}>
             <img
               src={fetchedData.data.current.condition.icon.replace(
@@ -46,10 +57,6 @@ function WeatherAPI() {
               <strong>{fetchedData.data.current.condition.text}</strong>
             </p>
           </div>
-          <p>
-            Wind speed:
-            <strong> {fetchedData.data.current.wind_kph} km/h</strong>
-          </p>
         </div>
       ) : (
         <p> Error in get request! </p>

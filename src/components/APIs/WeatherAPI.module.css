@@ -1,10 +1,24 @@
 .weather_display_container {
   padding: 3rem;
   text-justify: auto;
+  font-size: 1.2rem;
+
+  width: 22.5rem;
+}
+
+.text_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .icon_container {
   display: flex;
-
+  justify-content: space-between;
   align-items: center;
+}
+
+img {
+  position: relative;
+  left: -2rem;
 }
