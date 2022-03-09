@@ -1,13 +1,20 @@
 import APIsMain from "./components/APIs/APIsMain";
 import Header from "./components/Layout/Header";
-import ContentDivider from "./components/Layout/ContentDivider";
+
 import Footer from "./components/Layout/Footer";
 
 import "./App.css";
 
-// TODO -- consider adding button to change theme thanks to pickle daddy
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import "./App.css";
 
 function App() {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+    AOS.refresh();
+  }, []);
   return (
     <div>
       <Header />

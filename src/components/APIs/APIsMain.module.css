@@ -34,3 +34,9 @@
 
   color: rgb(138, 136, 136);
 }
+
+@media only screen and (max-width: 600px) {
+  .content_header {
+    font-size: 1.8rem;
+  }
+}

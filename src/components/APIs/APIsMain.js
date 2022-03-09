@@ -5,14 +5,12 @@ import classes from "./APIsMain.module.css";
 
 import CanucksCard from "./MainContent/CanucksCard";
 import NewsCard from "./MainContent/NewsCard";
-import CSSArticleCard from "./MainContent/CSSArticleCard";
-
-// TODO look into past projects local storage in order to keep the deleted state of the articles!!
+import TechnologyArticleCard from "./MainContent/TechArticleCard";
 
 function APIsMain() {
   // fetching APIs
   const [fetchedDataNews, setFetchedDataNews] = useState([]);
-  const [fetchedDataCSS, setFetchedDataCSS] = useState([]);
+  const [fetchedDataTechnology, setFetchedDataTechnology] = useState([]);
   const [fetchedDataCanucks, setFetchedDataCanucks] = useState([]);
   // managing loading state for APIs
   const [isLoading, setIsLoading] = useState(false);
@@ -29,8 +27,8 @@ function APIsMain() {
       "https://newsapi.org/v2/top-headlines?country=ca&apiKey=b3eb45134604439f9a86135bf1ae81c6"
     );
 
-    const dataFetchCSS = await axios.get(
-      "https://newsapi.org/v2/everything?q=css&apiKey=b3eb45134604439f9a86135bf1ae81c6"
+    const dataFetchTechnology = await axios.get(
+      "https://newsapi.org/v2/everything?q=technology&apiKey=b3eb45134604439f9a86135bf1ae81c6"
     );
 
     const dataFetchCanucks = await axios.get(
@@ -40,7 +38,7 @@ function APIsMain() {
     // transformed requests to properly display article card components
     const transformedNews = [...dataFetchNews.data.articles].map((article) => {
       return {
-        title: article.title,
+        title: article.title.slice(0, article.title.lastIndexOf(" - ")),
         url: article.url,
         image: article.urlToImage,
         source: article.source.name,
@@ -48,17 +46,7 @@ function APIsMain() {
       };
     });
 
-    const transformedCSS = [...dataFetchCSS.data.articles].map((article) => {
-      return {
-        title: article.title,
-        url: article.url,
-        image: article.urlToImage,
-        source: article.source.name,
-        id: Math.random(),
-      };
-    });
-
-    const transformedCanucks = [...dataFetchCanucks.data.articles].map(
+    const transformedTechnology = [...dataFetchTechnology.data.articles].map(
       (article) => {
         return {
           title: article.title,
@@ -70,8 +58,20 @@ function APIsMain() {
       }
     );
 
+    const transformedCanucks = [...dataFetchCanucks.data.articles].map(
+      (article) => {
+        return {
+          title: article.title.slice(0, article.title.lastIndexOf(" - ")),
+          url: article.url,
+          image: article.urlToImage,
+          source: article.source.name,
+          id: Math.random(),
+        };
+      }
+    );
+
     setFetchedDataNews(transformedNews);
-    setFetchedDataCSS(transformedCSS);
+    setFetchedDataTechnology(transformedTechnology);
     setFetchedDataCanucks(transformedCanucks);
 
     setIsLoading(false);
@@ -87,13 +87,13 @@ function APIsMain() {
       (article) => article.id !== id
     );
 
-    const updatedArticlesCSS = fetchedDataCSS.filter(
+    const updatedArticlesTechnology = fetchedDataTechnology.filter(
       (article) => article.id !== id
     );
 
     setFetchedDataCanucks(updatedArticlesCanucks);
     setFetchedDataNews(updatedArticlesNews);
-    setFetchedDataCSS(updatedArticlesCSS);
+    setFetchedDataTechnology(updatedArticlesTechnology);
   };
 
   return (
@@ -101,7 +101,11 @@ function APIsMain() {
       <h2 className={classes.content_header}> Canadian News </h2>
       <div className={classes.container}>
         {!isLoading && fetchedDataNews.length > 0 && (
-          <div className={classes.flex_container}>
+          <div
+            className={classes.flex_container}
+            data-aos="fade-in"
+            data-aos-once="true"
+          >
             {fetchedDataNews.map((news, i) => {
               return (
                 <NewsCard
@@ -127,7 +131,11 @@ function APIsMain() {
       <h2 className={classes.content_header}> Canucks </h2>
       <div className={classes.container}>
         {!isLoading && fetchedDataCanucks.length > 0 && (
-          <div className={classes.flex_container}>
+          <div
+            className={classes.flex_container}
+            data-aos="fade-in"
+            data-aos-once="true"
+          >
             {fetchedDataCanucks.map((canucks, i) => {
               return (
                 <CanucksCard
@@ -150,19 +158,23 @@ function APIsMain() {
         {isLoading && <h4> Loading articles... </h4>}
       </div>
 
-      <h2 className={classes.content_header}> CSS </h2>
+      <h2 className={classes.content_header}> Technology </h2>
       <div className={classes.container}>
-        {!isLoading && fetchedDataCSS.length > 0 && (
-          <div className={classes.flex_container}>
-            {fetchedDataCSS.map((css, i) => {
+        {!isLoading && fetchedDataTechnology.length > 0 && (
+          <div
+            className={classes.flex_container}
+            data-aos="fade-in"
+            data-aos-once="true"
+          >
+            {fetchedDataTechnology.map((tech, i) => {
               return (
-                <CSSArticleCard
-                  id={css.id}
+                <TechnologyArticleCard
+                  id={tech.id}
                   key={i}
-                  url={css.url}
-                  img={css.image || "no image available"}
-                  title={css.title}
-                  source={css.source}
+                  url={tech.url}
+                  img={tech.image || "no image available"}
+                  title={tech.title}
+                  source={tech.source}
                   onClick={removeArticle}
                 />
               );
@@ -170,7 +182,7 @@ function APIsMain() {
           </div>
         )}
 
-        {!isLoading && fetchedDataCSS.length === 0 && (
+        {!isLoading && fetchedDataTechnology.length === 0 && (
           <h4> No CSS articles found... </h4>
         )}
         {isLoading && <h4> Loading articles... </h4>}

@@ -16,7 +16,9 @@ const CanucksCard = (props) => {
           <h2> {props.title} </h2>
         </a>
 
-        <button onClick={handleDelete}> X </button>
+        <button className={classes.btn_close} onClick={handleDelete}>
+          X
+        </button>
 
         <p>
           <small> {props.source} </small>

@@ -11,6 +11,8 @@
   line-height: 1.55;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   transition: transform 450ms;
+
+  animation: fadeInAnimation ease 1s;
 }
 
 .articles_card:hover {
@@ -38,12 +40,10 @@ img {
   left: 0;
 }
 
-button {
+.btn_close {
   padding: 0.6rem;
-
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   border-radius: 1rem;
-
   margin: 0.5rem;
   width: auto;
   position: absolute;
@@ -52,11 +52,62 @@ button {
   right: 0;
 }
 
-button:hover,
-button:active {
-  background-color: #db5461;
+.btn_close:hover,
+.butn_close:active {
+  background-color: #c83e4d;
   color: #fafafa;
   -webkit-transition: all 0.4s;
   -moz-transition: all 0.4s;
   transition: all 0.4s;
+}
+
+.fadeOut {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  transition: width 0.5s 0.5s, height 0.5s 0.5s, opacity 0.5s;
+}
+.fadeIn {
+  opacity: 1;
+  width: 100px;
+  height: 100px;
+  transition: width 0.5s, height 0.5s, opacity 0.5s 0.5s;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutAnimation {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .articles_card {
+    width: 15rem;
+    height: 20rem;
+    line-height: 1;
+  }
+
+  .btn_close {
+    padding: 0.35rem;
+  }
+
+  .articles_card p,
+  h2,
+  img {
+    font-size: 1.1rem;
+  }
 }

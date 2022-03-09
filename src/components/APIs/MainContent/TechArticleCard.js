@@ -1,6 +1,6 @@
 import classes from "./ArticleCard.module.css";
 
-const CSSArticleCard = (props) => {
+const TechnologyArticleCard = (props) => {
   const handleDelete = () => {
     props.onClick(props.id);
   };
@@ -16,7 +16,10 @@ const CSSArticleCard = (props) => {
           <h2> {props.title} </h2>
         </a>
 
-        <button onClick={handleDelete}> X </button>
+        <button className={classes.btn_close} onClick={handleDelete}>
+          {" "}
+          X{" "}
+        </button>
         <p>
           <small> {props.source} </small>
         </p>
@@ -25,4 +28,4 @@ const CSSArticleCard = (props) => {
   );
 };
 
-export default CSSArticleCard;
+export default TechnologyArticleCard;

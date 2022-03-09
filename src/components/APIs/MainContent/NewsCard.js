@@ -5,22 +5,26 @@ const NewsCard = (props) => {
     props.onClick(props.id);
   };
   return (
-    <div className={classes.articles_card}>
-      <a href={`${props.url}`} target="_blank" rel="noreferrer">
-        {" "}
-        <img src={props.img} alt="" />{" "}
-      </a>
-
-      <div className={classes.articles_card_text}>
+    <div>
+      <div className={classes.articles_card}>
         <a href={`${props.url}`} target="_blank" rel="noreferrer">
-          <h2> {props.title} </h2>
+          {" "}
+          <img src={props.img} alt="" />{" "}
         </a>
 
-        <button onClick={handleDelete}> X</button>
+        <div className={classes.articles_card_text}>
+          <a href={`${props.url}`} target="_blank" rel="noreferrer">
+            <h2> {props.title} </h2>
+          </a>
 
-        <p>
-          <small> {props.source} </small>
-        </p>
+          <button className={classes.btn_close} onClick={handleDelete}>
+            X
+          </button>
+
+          <p>
+            <small> {props.source} </small>
+          </p>
+        </div>
       </div>
     </div>
   );
