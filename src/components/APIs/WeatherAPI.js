@@ -13,7 +13,7 @@ function WeatherAPI() {
   const getData = async () => {
     setLoading(true);
     const dataFetch = await axios.get(
-      "http://api.weatherapi.com/v1/current.json?key=2db01bd738ca4de89fe185506221701&q=Vancouver&aqi=no"
+      "https://api.weatherapi.com/v1/current.json?key=2db01bd738ca4de89fe185506221701&q=Vancouver&aqi=no"
     );
 
     setFetchedData(dataFetch);
