@@ -24,7 +24,7 @@ function APIsMain() {
 
     // API Fetches
     const dataFetchNews = await axios.get(
-      "https://newsapi.org/v2/top-headlines?country=ca&apiKey=b3eb45134604439f9a86135bf1ae81c6"
+      "https://gnews.io/api/v4/search?q=example&token=46cf2b884b2953843ca1f5a6e350e767"
     );
 
     const dataFetchTechnology = await axios.get(
