@@ -35,6 +35,20 @@
   color: rgb(138, 136, 136);
 }
 
+.disclaimer {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.disclaimer__btn {
+  margin-bottom: 2rem;
+
+  width: 12rem;
+  height: 5rem;
+}
+
 @media only screen and (max-width: 600px) {
   .content_header {
     font-size: 1.8rem;

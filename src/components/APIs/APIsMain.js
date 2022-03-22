@@ -6,6 +6,7 @@ import classes from "./APIsMain.module.css";
 import CanucksCard from "./MainContent/CanucksCard";
 import NewsCard from "./MainContent/NewsCard";
 import TechnologyArticleCard from "./MainContent/TechArticleCard";
+import Disclaimer from "../Layout/Disclaimer.js";
 
 function APIsMain() {
   // fetching APIs
@@ -15,16 +16,41 @@ function APIsMain() {
   // managing loading state for APIs
   const [isLoading, setIsLoading] = useState(false);
 
+  const [disclaimer, setDisclaimer] = useState(false);
+
   useEffect(() => {
     getData();
+    disclaimerTimer();
   }, []);
+
+  const disclaimerTimer = () => {
+    setTimeout(setDisclaimer(true), 1500);
+  };
+
+  const closeDisclaimer = () => {
+    setDisclaimer(false);
+  };
+
+  if (disclaimer) {
+    return (
+      <div className={classes.disclaimer}>
+        <button onClick={closeDisclaimer} className={classes.disclaimer__btn}>
+          {" "}
+          CLOSE DISCLAIMER{" "}
+        </button>
+        <Disclaimer />
+      </div>
+    );
+  }
 
   const getData = async () => {
     setIsLoading(true);
 
+    // gnews: https://gnews.io/api/v4/search?q=canada&token=46cf2b884b2953843ca1f5a6e350e767
+
     // API Fetches
     const dataFetchNews = await axios.get(
-      "https://gnews.io/api/v4/search?q=example&token=46cf2b884b2953843ca1f5a6e350e767"
+      "https://newsapi.org/v2/everything?q=canada&apiKey=b3eb45134604439f9a86135bf1ae81c6"
     );
 
     const dataFetchTechnology = await axios.get(
