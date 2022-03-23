@@ -1,9 +1,6 @@
 import classes from "./Disclaimer.module.css";
-import VideoPlayer from "react-video-js-player";
-import disclaimer from "../../video/disclaimer.mp4";
 
 const Modal = (props) => {
-  const videoSrc = disclaimer;
   return (
     <div className={classes.modal}>
       <div className={classes.modal__header}>
@@ -37,9 +34,7 @@ const Modal = (props) => {
           </a>
         </p>
 
-        <div className={classes.video__container}>
-          <VideoPlayer src={videoSrc} className={classes.video} />
-        </div>
+        <div className={classes.video__container}></div>
       </div>
     </div>
   );
