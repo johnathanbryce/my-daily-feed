@@ -34,7 +34,18 @@ const Modal = (props) => {
           </a>
         </p>
 
-        <div className={classes.video__container}></div>
+        <div className={classes.video__container}>
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/dsUbMVQLY-8"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen="true"
+            className={classes.video}
+          ></iframe>
+        </div>
       </div>
     </div>
   );
